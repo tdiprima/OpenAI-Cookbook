@@ -2,7 +2,7 @@ import os
 import openai
 
 # My personal API Key
-openai.api_key =  os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # Use the completions endpoint to generate a completion
 response = openai.Completion.create(
