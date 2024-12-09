@@ -94,8 +94,4 @@ response = openai.ChatCompletion.create(
 print(response['choices'][0]['message']['content'])
 ```
 
----
-
-Let me know if you'd like further assistance! 🚀  
-
 <br>

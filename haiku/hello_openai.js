@@ -14,7 +14,7 @@ async function main() {
   console.log(completion.choices);
 }
 
-// main();
+main();
 
 // Artificial mind
 // Learning and adapting fast

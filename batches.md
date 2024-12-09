@@ -84,6 +84,6 @@ openai batch create -m gpt-4 -f prompts.jsonl
   ```
 - Verify your API key and permissions before submission.
 
-By including all required parameters, your batch requests should process without errors. If you encounter further issues or need additional assistance, feel free to ask! 
+By including all required parameters, your batch requests should process without errors.
 
 <br>
