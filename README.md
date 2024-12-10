@@ -21,10 +21,10 @@ While following the [OpenAI Python migration guide](https://github.com/openai/op
    curl -fsSL https://docs.grit.io/install | bash
    ```
 
-2. Use Grit to apply the OpenAI migration:
+2. Use Grit to apply the [OpenAI migration](https://github.com/openai/openai-python/issues/1838#issuecomment-2457972838):
 
    ```sh
-   grit install
+   source $HOME/.grit/bin/env
    grit apply openai
    ```
 
