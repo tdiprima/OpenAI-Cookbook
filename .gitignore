@@ -3,3 +3,5 @@
 .vscode/
 # Dependency directories
 node_modules/
+*.html
+*.json
