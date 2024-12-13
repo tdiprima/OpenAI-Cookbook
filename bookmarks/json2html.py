@@ -1,3 +1,4 @@
+# Use this script to convert a JSON file to HTML (to import into Chrome bookmarks)
 import json
 
 def json_to_html(json_file, html_file):
