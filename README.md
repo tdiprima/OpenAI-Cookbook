@@ -1,4 +1,4 @@
-# OpenAI-recipes
+# OpenAI-Cookbook
 
 This repository mainly follows examples and ideas from the [OpenAI Dashboard](https://platform.openai.com/chat-completions) and the [Playground](https://platform.openai.com/playground/chat?models=gpt-4o).
 
