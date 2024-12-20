@@ -1,4 +1,5 @@
 #!/bin/bash
+# https://platform.openai.com/docs/guides/vision#quickstart
 
 curl https://api.openai.com/v1/chat/completions \
   -H "Content-Type: application/json" \
