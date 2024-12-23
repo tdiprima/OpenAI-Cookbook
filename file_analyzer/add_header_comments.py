@@ -6,7 +6,8 @@ from openai import OpenAI
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Folder to process
-INPUT_FOLDER = "/path/to/your/scripts"
+home_directory = os.environ["HOME"]
+INPUT_FOLDER = home_directory + "/path/to/your/scripts"
 
 # File types to process
 SUPPORTED_FILE_TYPES = [".js", ".py"]
