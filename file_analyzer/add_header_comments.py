@@ -2,7 +2,7 @@ import os
 
 from openai import OpenAI
 
-# Initialize the Groq client
+# Initialize the OpenAI client
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Folder to process
@@ -21,6 +21,7 @@ def process_file(file_path):
     # Construct Groq prompt
     prompt = f"""You are a code analysis assistant. Please read the following code and summarize its functionality in one sentence. 
     Add the summary as a comment at the top of the file  Don't say "Here is the summary" or things of that nature.  Just write the script.
+    And don't start with "This script..." or "This code...".
 
     Code:
     {content}
@@ -36,13 +37,7 @@ def process_file(file_path):
         summary = response.choices[0].message.content.strip()
 
         # Add header comment
-        if file_path.endswith(".js"):
-            header_comment = f"// {summary}\n"
-        elif file_path.endswith(".py"):
-            header_comment = f"# {summary}\n"
-        else:
-            print(f"Unsupported file type for {file_path}. Skipping.")
-            return
+        header_comment = f"{summary}\n"
 
         # Write the updated file
         with open(file_path, "w") as file:
