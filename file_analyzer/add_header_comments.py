@@ -18,7 +18,7 @@ def process_file(file_path):
     with open(file_path, "r") as file:
         content = file.read()
 
-    # Construct Groq prompt
+    # Construct OpenAI prompt
     prompt = f"""You are a code analysis assistant. Please read the following code and summarize its functionality in one sentence. 
     Add the summary as a comment at the top of the file  Don't say "Here is the summary" or things of that nature.  Just write the script.
     And don't start with "This script..." or "This code...".
@@ -28,7 +28,7 @@ def process_file(file_path):
     """
 
     try:
-        # Get response from Groq
+        # Get response from OpenAI
         response = client.chat.completions.create(model="gpt-4",
             messages=[{"role": "system", "content": "You are an expert in analyzing code."},
                       {"role": "user", "content": prompt}])
