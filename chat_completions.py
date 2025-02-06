@@ -1,3 +1,6 @@
+"""
+Test chat completions with system and user, temperature and max tokens.
+"""
 import os
 from openai import OpenAI
 

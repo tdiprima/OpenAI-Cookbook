@@ -1,4 +1,14 @@
-# Export your bookmarks from Chrome and use this script to categorize them
+"""
+Export your bookmarks from Chrome and use this script to categorize them
+Author: tdiprima
+Version: 1.0
+License: MIT
+"""
+
+__author__ = 'tdiprima'
+__version__ = '1.0'
+__license__ = 'MIT'
+
 import os
 import json
 from bs4 import BeautifulSoup

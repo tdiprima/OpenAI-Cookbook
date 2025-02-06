@@ -1,3 +1,6 @@
+"""
+Financial Advisor Chatbot
+"""
 import os
 from openai import OpenAI
 

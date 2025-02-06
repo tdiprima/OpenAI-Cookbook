@@ -1,7 +1,19 @@
-# Programmatically Adjusting Message History to Manage Token Limits
-# In a chatbot application, you might want to:
-# Maintain a "summary" of the conversation for context.
-# Remove old messages when the token count grows too high.
+"""
+Programmatically Adjusting Message History to Manage Token Limits
+
+In a chatbot application, you might want to:
+Maintain a "summary" of the conversation for context.
+Remove old messages when the token count grows too high.
+
+Author: tdiprima
+Version: 1.0
+License: MIT
+"""
+
+__author__ = 'tdiprima'
+__version__ = '1.0'
+__license__ = 'MIT'
+
 import os
 from openai import OpenAI
 
