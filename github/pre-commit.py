@@ -10,7 +10,6 @@ import subprocess
 from openai import OpenAI
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-import git
 
 
 def get_git_diff():
