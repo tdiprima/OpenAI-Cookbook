@@ -1,3 +1,5 @@
+## [Evaluating model performance](https://platform.openai.com/docs/guides/evals)
+
 ## **Evaluations**
 This section helps you compare model outputs or evaluate their quality against defined metrics.
 

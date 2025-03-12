@@ -1,6 +1,7 @@
+## [Fine-tuning](https://platform.openai.com/docs/guides/fine-tuning)
+
 To meet the requirement of at least **10 examples** for fine-tuning, you can expand your dataset with diverse input-output pairs. Here's how to ensure you have enough examples:
 
----
 
 ### Step 1: Create 10 Examples
 Below is an expanded dataset with at least 10 entries for fine-tuning a **translation assistant**:
@@ -18,12 +19,12 @@ Below is an expanded dataset with at least 10 entries for fine-tuning a **transl
 {"messages": [{"role": "system", "content": "You are a helpful assistant that translates text to French."}, {"role": "user", "content": "Translate to French: See you later"}, {"role": "assistant", "content": "À plus tard"}]}
 ```
 
----
 
 ### Step 2: Automate Dataset Creation
 If you want to generate more examples programmatically:
 
 #### Python Code:
+
 ```python
 import json
 
@@ -52,46 +53,49 @@ for idx, example in enumerate(examples):
         ]
     })
 
+file_name = "training_data.jsonl"
+
 # Save to JSONL file
-with open("chat_formatted_10_examples.jsonl", "w") as file:
+with open(file_name, "w") as file:
     for entry in chat_data:
         file.write(json.dumps(entry) + "\n")
 
-print("Dataset with 10 examples created: chat_formatted_10_examples.jsonl")
+print("Dataset with 10 examples created:", file_name)
 ```
 
----
 
 ### Step 3: Validate and Upload the Dataset
 1. **Validate the JSONL file**:
+
    ```bash
-   jq . chat_formatted_10_examples.jsonl
+   jq . training_data.jsonl
    ```
 
 2. **Upload the file**:
+
    ```bash
-   openai file upload --purpose fine-tune -f chat_formatted_10_examples.jsonl
+   openai file upload --purpose fine-tune -f training_data.jsonl
    ```
 
 3. **Start Fine-Tuning**:
+
+   [How to fine tune a model using terminal](https://community.openai.com/t/how-to-fine-tune-a-model-using-terminal/)
+
    ```bash
    openai api fine_tunes.create -t file-<file-id> -m gpt-3.5-turbo-0125
    ```
 
----
 
 ### Step 4: Testing the Fine-Tuned Model
 Once fine-tuning is complete, test the model by querying it:
 
 ```python
-response = openai.ChatCompletion.create(
-    model="your-fine-tuned-model-id",
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Translate to French: I am happy"}
-    ]
-)
-print(response['choices'][0]['message']['content'])
+response = client.chat.completions.create(model="your-fine-tuned-model-id",
+messages=[
+    {"role": "system", "content": "You are a helpful assistant."},
+    {"role": "user", "content": "Translate to French: I am happy"}
+])
+print(response.choices[0].message.content)
 ```
 
 <br>

@@ -1,3 +1,5 @@
+## [Batch API](https://platform.openai.com/docs/guides/batch)
+
 To successfully utilize the **Batches** feature in OpenAI, each entry in your JSON Lines (JSONL) file must include specific parameters:
 
 - **`custom_id`**: A unique identifier for each request.
@@ -82,6 +84,7 @@ openai batch create -m gpt-4 -f prompts.jsonl
   ```bash
   jq . batch_prompts.jsonl
   ```
+
 - Verify your API key and permissions before submission.
 
 By including all required parameters, your batch requests should process without errors.

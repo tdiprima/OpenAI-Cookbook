@@ -1,5 +1,6 @@
 """
 Financial Advisor Chatbot
+https://platform.openai.com/docs/assistants/quickstart
 """
 import os
 from openai import OpenAI

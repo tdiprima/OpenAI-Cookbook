@@ -1,0 +1,5 @@
+File upload response: <FileObject id=file-abc123 ...>
+Uploaded file ID: file-abc123
+Vector store created: vs_xyz789
+Assistant created with vector store: asst_def456
+Final assistant ID: asst_def456

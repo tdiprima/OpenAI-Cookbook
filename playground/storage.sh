@@ -7,6 +7,7 @@
 # - Lists all uploaded files
 #
 # Usage: Modify "path/to/file.jsonl" with the actual file path before running.
+# https://platform.openai.com/storage/
 #
 
 # Upload

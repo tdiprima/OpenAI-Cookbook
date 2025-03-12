@@ -1,5 +1,6 @@
 """
 Test chat completions with system and user, temperature and max tokens.
+https://platform.openai.com/docs/quickstart?api-mode=chat
 """
 import os
 from openai import OpenAI
