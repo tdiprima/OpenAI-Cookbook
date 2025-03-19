@@ -1,0 +1,17 @@
+File uploaded: file-xxxxx 🎉
+Assistant ready: asst_xxxxx 🦸‍♂️
+Question asked in thread: thread_xxxxx 💬
+Run started: run_xxxxx ⚡️
+Status: queued ⏳
+Status: in_progress ⏳
+Status: in_progress ⏳
+Status: in_progress ⏳
+Status: in_progress ⏳
+Status: in_progress ⏳
+Status: in_progress ⏳
+Status: in_progress ⏳
+Status: in_progress ⏳
+Status: failed ⏳
+Run failed! Reason: LastError(code='rate_limit_exceeded', message='Request too large for gpt-4o in organization org-xxxxx on tokens per min (TPM): Limit 30000, Requested 31086. The input or output tokens must be reduced in order to run successfully. Visit https://platform.openai.com/account/rate-limits to learn more.') ❌
+
+* Switched to gpt-4o-mini *
