@@ -1,8 +1,8 @@
-The code snippets you shared are examples of a system called `openai-agents`, which is a framework for building and running AI agents. Think of agents as little digital helpers with specific jobs. These snippets show how to create them, give them tasks, and make them work together. Let's dive into the big picture and key ideas!
+`openai-agents` is a framework for building and running AI agents. Think of agents as little digital helpers with specific jobs. These snippets show how to create them, give them tasks, and make them work together. Let's dive into the big picture and key ideas!
 
 ---
 
-### What's Happening Here?
+## What's Happening Here?
 Imagine you're building a team of tiny robots (agents) to handle different tasks. Each robot has a name, a job description (instructions), and sometimes special tools or coworkers they can pass work to. The `Runner` is like the manager who tells them what to do and gets their answers back. The code shows three cool ways to use this team:
 
 1. **Language Switcher Team**: One robot (triage agent) listens to your request, figures out if it's in Spanish or English, and hands it off to the right language-speaking robot.
@@ -11,7 +11,7 @@ Imagine you're building a team of tiny robots (agents) to handle different tasks
 
 ---
 
-### How Does It Work?
+## How Does It Work?
 The system uses two main building blocks: `Agent` and `Runner`. Here's the gist:
 
 - **`Agent`**: This is your robot! You create it with:
@@ -28,7 +28,7 @@ The code also uses `asyncio` (a Python thing for running tasks smoothly without 
 
 ---
 
-### The Three Examples
+## The Three Examples
 Let's zoom through each snippet with quick vibes:
 
 1. **Language Team**:
@@ -48,7 +48,7 @@ Let's zoom through each snippet with quick vibes:
 
 ---
 
-### Key Takeaways:
+## Key Takeaways:
 - **Agents are customizable**: Give them a name, a job, and maybe some friends or gadgets.
 - **Runner runs the show**: It's the "go" button—sync (wait for the answer) or async (do it fast with `await`).
 - **Teamwork or solo**: Agents can work alone or pass tasks around like a relay race.
@@ -56,7 +56,7 @@ Let's zoom through each snippet with quick vibes:
 
 ---
 
-### Try It Yourself!
+## Try It Yourself!
 Wanna mess around? Here's a quick idea:
 
 - Make an agent called "JokeBot" with instructions "Tell me a short joke."
@@ -67,12 +67,12 @@ Example: `joke_bot.py`
 
 ---
 
-### Why Should You Care?
+## Why Should You Care?
 This `openai-agents` thing is like a playground for building AI helpers. You can make them chat, solve problems, or even fetch info—all with a few lines of code. It's flexible, fast, and lets you experiment without drowning in details.
 
 ---
 
-### **Question: Does the Agent Reach Out to the LLM? Can I Think of It as the LLM?**
+## **Question: Does the Agent Reach Out to the LLM? Can I Think of It as the LLM?**
 **Short Answer**: Yes, it probably reaches out to an LLM (like OpenAI's models), but it's *more* than just the LLM—it's a wrapper around it. Think of the agent as a smart assistant powered by an LLM brain.
 
 **How It Works**:
@@ -86,7 +86,7 @@ This `openai-agents` thing is like a playground for building AI helpers. You can
 
 **Can You Think of It as the LLM?**: Sorta! It's close enough for quick thinking—like calling your phone "Siri" even though Siri's just part of it. But if you're debugging or building, remember the agent's got those extra layers.
 
-### **Quick Recap**
+## **Quick Recap**
 
 **LLM?**: Agent = LLM + extras (instructions, tools). It's powered by an LLM, but it's a beefier package.
 
