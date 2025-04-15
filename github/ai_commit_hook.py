@@ -143,7 +143,7 @@ def generate_commit_message(diff):
     """
 
     try:
-        response = client.chat.completions.create(model="gpt-4",
+        response = client.chat.completions.create(model="gpt-4o-mini",
         messages=[{"role": "user", "content": prompt}],
         max_tokens=50)
         return response.choices[0].message.content.strip()
