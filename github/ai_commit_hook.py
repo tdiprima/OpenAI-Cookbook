@@ -11,9 +11,10 @@ import tiktoken
 from openai import OpenAI
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+MODEL = "gpt-4o-mini"
 
 
-def count_tokens(text, model="gpt-4"):
+def count_tokens(text, model=MODEL):
     """Count the number of tokens in the text using tiktoken."""
     try:
         encoder = tiktoken.encoding_for_model(model)
@@ -148,7 +149,7 @@ def generate_commit_message(diff):
     """
 
     try:
-        response = client.chat.completions.create(model="gpt-4o-mini",
+        response = client.chat.completions.create(model=MODEL,
         messages=[{"role": "user", "content": prompt}],
         max_tokens=50)
         return response.choices[0].message.content.strip()
