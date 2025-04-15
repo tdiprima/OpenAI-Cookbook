@@ -28,7 +28,12 @@ def generate_commit_message(diff):
         return "No changes detected."
 
     prompt = f"""
-    Generate a concise and meaningful commit message based on the following git diff:
+    Generate a concise and meaningful commit message.
+    Subject line (short summary):
+    Limit: 50 characters or less.
+    Style: Written in the imperative mood (e.g., Add new login endpoint, not Added or Adding).
+    No period at the end.
+    Generate it based on the following git diff:
     ```
     {diff}
     ```
