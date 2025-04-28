@@ -37,6 +37,7 @@ def generate_commit_message(diff):
     - Use *imperative mood* (e.g., Fix bug, not Fixed or Fixing)
     - Do NOT end with a period
 
+    RESPONSES MUST BE <= 50 CHARACTERS LONG.
     Base the message on this git diff:
     ```
     {diff}
