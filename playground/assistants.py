@@ -13,7 +13,7 @@ You are a financial advisor. Respond concisely and focus on investment strategie
 """
 
 # Test via Chat Completions
-response = client.chat.completions.create(model="gpt-4",
+response = client.chat.completions.create(model="gpt-4o-realtime-preview-2025-06-03",
 messages=[
     {"role": "system", "content": system_prompt},
     {"role": "user", "content": "What are the best stocks to invest in right now?"}

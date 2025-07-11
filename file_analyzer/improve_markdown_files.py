@@ -40,7 +40,7 @@ Content:
 
     try:
         # Call GPT-4
-        response = client.chat.completions.create(model="gpt-4",
+        response = client.chat.completions.create(model="gpt-4o-realtime-preview-2025-06-03",
         messages=[
             {"role": "system", "content": "You are an expert in writing and improving markdown content."},
             {"role": "user", "content": prompt}

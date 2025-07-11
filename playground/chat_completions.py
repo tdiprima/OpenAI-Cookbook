@@ -7,7 +7,7 @@ from openai import OpenAI
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-response = client.chat.completions.create(model="gpt-4",
+response = client.chat.completions.create(model="gpt-4o-realtime-preview-2025-06-03",
 messages=[
     {"role": "system", "content": "You are a helpful, witty, and friendly assistant."},
     {"role": "user", "content": "Can you explain quantum computing?"}

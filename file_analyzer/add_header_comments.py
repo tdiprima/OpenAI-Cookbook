@@ -41,7 +41,7 @@ def process_file(file_path):
 
     try:
         # Get response from OpenAI
-        response = client.chat.completions.create(model="gpt-4",
+        response = client.chat.completions.create(model="gpt-4o-realtime-preview-2025-06-03",
             messages=[{"role": "system", "content": "You are an expert in analyzing code."},
                       {"role": "user", "content": prompt}])
 

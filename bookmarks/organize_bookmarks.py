@@ -29,7 +29,7 @@ def categorize_bookmarks(bookmarks):
     categories = {}
     for bookmark in bookmarks:
         response = client.chat.completions.create(
-            model="gpt-4",
+            model="gpt-4o-realtime-preview-2025-06-03",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant that categorizes URLs into short labels."},
                 {"role": "user", "content": f"Categorize this URL: {bookmark['url']}. Provide a short label (e.g., Tech, News, Shopping)."}

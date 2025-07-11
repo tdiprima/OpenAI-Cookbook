@@ -46,7 +46,7 @@ def chat_with_gpt(user_input, max_output_tokens=150):
     messages = truncate_messages(messages)
 
     # Call OpenAI API
-    response = client.chat.completions.create(model="gpt-4",
+    response = client.chat.completions.create(model="gpt-4o-realtime-preview-2025-06-03",
     messages=messages,
     temperature=0.7,
     max_tokens=max_output_tokens)  # Dynamically allocate output tokens

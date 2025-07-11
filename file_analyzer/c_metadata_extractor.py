@@ -42,7 +42,7 @@ def extract_possible_names_or_urls(content):
         "Extract any names or URLs that appear to be identifiers, authors, or references in the given C/C++ file. "
         "Do not include any preamble or extra text, just list the extracted names or URLs."
     )
-    response = client.chat.completions.create(model="gpt-4",
+response = client.chat.completions.create(model="gpt-4o-realtime-preview-2025-06-03",
     messages=[
         {"role": "system", "content": prompt},
         {"role": "user", "content": content[:4000]}  # Limit to 4000 characters
