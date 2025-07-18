@@ -34,9 +34,9 @@ def suggest_tasks(diff_text: str) -> str:
         "What needs follow‑up or could be improved?"
     )
     response = client.chat.completions.create(model="gpt-4.1-nano",
-    messages=[{"role": "user", "content": prompt}],
-    max_tokens=200,
-    temperature=0.2)
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=200,
+        temperature=0.2)
     return response.choices[0].message.content.strip()
 
 
