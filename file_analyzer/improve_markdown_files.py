@@ -18,8 +18,8 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Directory containing Markdown files
 home_directory = os.environ["HOME"]
-MARKDOWN_DIR = home_directory + '/path/to/markdown/files'
-OUTPUT_DIR = home_directory + '/path/to/output/files'
+MARKDOWN_DIR = home_directory + '/trabajo/machine-learning/tensorflow-course'
+OUTPUT_DIR = home_directory
 
 
 def improve_markdown(file_path, output_path):
@@ -40,7 +40,7 @@ Content:
 
     try:
         # Call GPT-4
-        response = client.chat.completions.create(model="gpt-4o-realtime-preview-2025-06-03",
+        response = client.chat.completions.create(model="gpt-4o",
         messages=[
             {"role": "system", "content": "You are an expert in writing and improving markdown content."},
             {"role": "user", "content": prompt}
