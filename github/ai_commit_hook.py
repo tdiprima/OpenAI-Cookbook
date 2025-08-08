@@ -10,7 +10,7 @@ import sys
 from openai import OpenAI
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-MODEL = "gpt-4.1-nano"
+MODEL = "gpt-4o"
 
 
 def get_git_diff(repo_path):
@@ -29,16 +29,10 @@ def generate_commit_message(diff):
         return "No changes detected."
 
     prompt = f"""
-    Write a concise, meaningful Git commit message.
-
-    Requirements:
-    - One-line summary only
-    - Max length: 50 characters (no exceptions)
-    - Use *imperative mood* (e.g., Fix bug, not Fixed or Fixing)
-    - Do NOT end with a period
-
+    Here's a git diff. Generate a concise and professional Git commit message based on the changes. Use the Conventional Commits style.
     RESPONSES MUST BE <= 50 CHARACTERS LONG.
-    Base the message on this git diff:
+
+    Diff:
     ```
     {diff}
     ```
