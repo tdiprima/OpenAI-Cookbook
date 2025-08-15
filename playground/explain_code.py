@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script to read a Python file, send it to GPT-5 for explanation, and save the output to output.md
+Script to read a Python file, send it to GPT-4 for explanation, and save the output to output.md
 """
 
 import os
@@ -44,7 +44,7 @@ Please explain it in a clear, educational manner suitable for someone learning P
 
     try:
         response = client.chat.completions.create(
-            model="gpt-5",
+            model="gpt-4o",
             messages=[
                 {
                     "role": "system",
@@ -111,7 +111,7 @@ def main(python_file: str = typer.Argument(..., help="Path to the Python file to
             progress.update(task, description="✅ File read successfully")
 
             # Get explanation from GPT-4
-            progress.update(task, description="🤖 Getting explanation from GPT-4...")
+            progress.update(task, description="🤖 Getting explanation from GPT-4o...")
             explanation = explain_code_with_gpt(client, code, python_file)
             progress.update(task, description="✅ Explanation received")
 
