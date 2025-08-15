@@ -1,0 +1,152 @@
+#!/usr/bin/env python3
+"""
+Script to read a Python file, send it to GPT-5 for explanation, and save the output to output.md
+"""
+
+import argparse
+import os
+import sys
+from pathlib import Path
+from typing import Optional
+
+from openai import OpenAI
+from rich.console import Console
+from rich.progress import Progress, SpinnerColumn, TextColumn
+
+
+def read_python_file(file_path: str) -> str:
+    """Read the contents of a Python file."""
+    try:
+        with open(file_path, "r", encoding="utf-8") as file:
+            return file.read()
+    except FileNotFoundError:
+        raise FileNotFoundError(f"Python file not found: {file_path}")
+    except Exception as e:
+        raise Exception(f"Error reading file {file_path}: {e}")
+
+
+def explain_code_with_gpt(client: OpenAI, code: str, filename: str) -> str:
+    """Send code to GPT-4 for explanation."""
+    prompt = f"""Teach me how this Python script works. Please provide a comprehensive explanation that covers:
+
+1. Overall purpose and functionality
+2. Key components and their roles  
+3. How the code flows and executes
+4. Important concepts, algorithms, or patterns used
+5. Any notable libraries or techniques employed
+
+Here's the Python code from {filename}:
+
+```python
+{code}
+```
+
+Please explain it in a clear, educational manner suitable for someone learning Python."""
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-5",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are an expert Python teacher who explains code clearly and comprehensively.",
+                },
+                {"role": "user", "content": prompt},
+            ],
+            max_tokens=4000,
+            temperature=0.3,
+        )
+        return response.choices[0].message.content
+    except Exception as e:
+        raise Exception(f"Error calling OpenAI API: {e}")
+
+
+def save_explanation(explanation: str, output_file: str = "output.md") -> None:
+    """Save the explanation to a markdown file."""
+    try:
+        with open(output_file, "w", encoding="utf-8") as file:
+            file.write(f"# Python Code Explanation\n\n")
+            file.write(explanation)
+        print(f"\n✅ Explanation saved to {output_file}")
+    except Exception as e:
+        raise Exception(f"Error saving explanation: {e}")
+
+
+def main():
+    """Main function to orchestrate the code explanation process."""
+    parser = argparse.ArgumentParser(
+        description="Read a Python file, get GPT-5 explanation, and save to output.md"
+    )
+    parser.add_argument("python_file", help="Path to the Python file to explain")
+    parser.add_argument(
+        "-o",
+        "--output",
+        default="output.md",
+        help="Output markdown file (default: output.md)",
+    )
+    parser.add_argument(
+        "-k",
+        "--api-key",
+        help="OpenAI API key (can also use OPENAI_API_KEY environment variable)",
+    )
+
+    args = parser.parse_args()
+    console = Console()
+
+    # Validate input file
+    if not Path(args.python_file).exists():
+        console.print(
+            f"❌ Error: File '{args.python_file}' does not exist", style="red"
+        )
+        sys.exit(1)
+
+    if not args.python_file.endswith(".py"):
+        console.print("⚠️  Warning: File doesn't have .py extension", style="yellow")
+
+    # Get API key
+    api_key = args.api_key or os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        console.print(
+            "❌ Error: OpenAI API key required. Set OPENAI_API_KEY environment variable or use --api-key",
+            style="red",
+        )
+        sys.exit(1)
+
+    # Initialize OpenAI client
+    client = OpenAI(api_key=api_key)
+
+    try:
+        with Progress(
+            SpinnerColumn(),
+            TextColumn("[progress.description]{task.description}"),
+            console=console,
+            transient=True,
+        ) as progress:
+
+            # Read the Python file
+            task = progress.add_task("Reading Python file...", total=None)
+            code = read_python_file(args.python_file)
+            progress.update(task, description="✅ File read successfully")
+
+            # Get explanation from GPT-4
+            progress.update(task, description="🤖 Getting explanation from GPT-4...")
+            explanation = explain_code_with_gpt(client, code, args.python_file)
+            progress.update(task, description="✅ Explanation received")
+
+            # Save explanation
+            progress.update(task, description="💾 Saving explanation...")
+            save_explanation(explanation, args.output)
+            progress.update(task, description="✅ Complete!")
+
+        console.print(
+            f"\n🎉 Successfully explained '{args.python_file}'", style="green bold"
+        )
+        console.print(f"📄 Explanation saved to: {args.output}")
+
+    except Exception as e:
+        console.print(f"❌ Error: {e}", style="red")
+        sys.exit(1)
+
+
+if __name__ == "__main__":
+    main()

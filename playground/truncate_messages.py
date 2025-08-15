@@ -10,11 +10,12 @@ Version: 1.0
 License: MIT
 """
 
-__author__ = 'tdiprima'
-__version__ = '1.0'
-__license__ = 'MIT'
+__author__ = "tdiprima"
+__version__ = "1.0"
+__license__ = "MIT"
 
 import os
+
 from openai import OpenAI
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
@@ -23,10 +24,10 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 # Function to truncate messages
 def truncate_messages(messages, max_input_tokens=3000):
     """Truncate message history to fit within the input token limit."""
-    total_tokens = sum(len(message['content']) for message in messages)
+    total_tokens = sum(len(message["content"]) for message in messages)
     while total_tokens > max_input_tokens:
         messages.pop(0)  # Remove oldest message
-        total_tokens = sum(len(message['content']) for message in messages)
+        total_tokens = sum(len(message["content"]) for message in messages)
     return messages
 
 
@@ -46,10 +47,12 @@ def chat_with_gpt(user_input, max_output_tokens=150):
     messages = truncate_messages(messages)
 
     # Call OpenAI API
-    response = client.chat.completions.create(model="gpt-4o-realtime-preview-2025-06-03",
-    messages=messages,
-    temperature=0.7,
-    max_tokens=max_output_tokens)  # Dynamically allocate output tokens
+    response = client.chat.completions.create(
+        model="gpt-4o-realtime-preview-2025-06-03",
+        messages=messages,
+        temperature=0.7,
+        max_tokens=max_output_tokens,
+    )  # Dynamically allocate output tokens
 
     # Get assistant's response
     assistant_message = response.choices[0].message.content
