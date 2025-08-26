@@ -18,7 +18,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Directory containing Markdown files
 home_directory = os.environ["HOME"]
-MARKDOWN_DIR = home_directory + '/trabajo/machine-learning/tensorflow-course'
+MARKDOWN_DIR = home_directory + '/path/to/your/markdown'
 OUTPUT_DIR = home_directory
 
 
@@ -32,11 +32,16 @@ def improve_markdown(file_path, output_path):
     print(f"Processing: {file_path}")
 
     # Construct the OpenAI prompt
-    prompt = f"""You are a helpful assistant. Here is some Markdown content. Can you rewrite it to make it better while keeping the meaning the same?
+    prompt = f"""You are a skilled editor. I will provide you with some Markdown content.
+    Your task is to rewrite and improve it while keeping the original meaning intact.
+    Make the writing clearer, smoother, and more engaging.
+    Preserve the structure and formatting of Markdown.
+    Correct any grammar, spelling, or style issues.
+    Do not change the intent or factual content.
 
-Content:
-{content}
-"""
+    Here is the Markdown content:
+    {content}
+    """
 
     try:
         # Call GPT-4
