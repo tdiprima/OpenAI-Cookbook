@@ -2,7 +2,9 @@
 CalcBot with Tool: Parses '[operation] [num1] [num2]' (e.g., 'multiply 6 2'), uses 'do_math' tool for results or 'Error'. Smarter, not harder!
 Author: tdiprima
 """
+
 import asyncio
+
 from agents import Agent, Runner, function_tool
 
 
@@ -22,7 +24,7 @@ def do_math(operation: str, num1: float, num2: float) -> str:
             return str(num1 / num2)
         else:
             return "Error"
-    except:
+    except Exception:
         return "Error"
 
 
@@ -46,18 +48,19 @@ calc_agent = Agent(
 async def main():
     # Test inputs
     inputs = [
-        "add 5 3",            # 8
-        "subtract 10 4",      # 6
-        "multiply 6 2",       # 12
-        "divide 8 2",         # 4
-        "divide 5 0",         # Error
-        "bad input here",     # Error
+        "add 5 3",  # 8
+        "subtract 10 4",  # 6
+        "multiply 6 2",  # 12
+        "divide 8 2",  # 4
+        "divide 5 0",  # Error
+        "bad input here",  # Error
     ]
 
     # Run each input through the agent
     for user_input in inputs:
         result = await Runner.run(calc_agent, input=user_input)
         print(f"Input: {user_input} -> Result: {result.final_output}")
+
 
 # Run it!
 if __name__ == "__main__":

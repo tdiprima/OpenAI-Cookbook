@@ -4,7 +4,6 @@ Script to read a Python file, send it to GPT-4 for explanation, and save the out
 """
 
 import os
-import sys
 from pathlib import Path
 
 import typer
@@ -64,22 +63,22 @@ def save_explanation(explanation: str, output_file: str = "output.md") -> None:
     """Save the explanation to a markdown file."""
     try:
         with open(output_file, "w", encoding="utf-8") as file:
-            file.write(f"# Python Code Explanation\n\n")
+            file.write("# Python Code Explanation\n\n")
             file.write(explanation)
         print(f"\n✅ Explanation saved to {output_file}")
     except Exception as e:
         raise Exception(f"Error saving explanation: {e}")
 
 
-def main(python_file: str = typer.Argument(..., help="Path to the Python file to explain")):
+def main(
+    python_file: str = typer.Argument(..., help="Path to the Python file to explain")
+):
     """Main function to orchestrate the code explanation process."""
     console = Console()
 
     # Validate input file
     if not Path(python_file).exists():
-        console.print(
-            f"❌ Error: File '{python_file}' does not exist", style="red"
-        )
+        console.print(f"❌ Error: File '{python_file}' does not exist", style="red")
         raise typer.Exit(1)
 
     if not python_file.endswith(".py"):
@@ -123,7 +122,7 @@ def main(python_file: str = typer.Argument(..., help="Path to the Python file to
         console.print(
             f"\n🎉 Successfully explained '{python_file}'", style="green bold"
         )
-        console.print(f"📄 Explanation saved to: output.md")
+        console.print("📄 Explanation saved to: output.md")
 
     except Exception as e:
         console.print(f"❌ Error: {e}", style="red")

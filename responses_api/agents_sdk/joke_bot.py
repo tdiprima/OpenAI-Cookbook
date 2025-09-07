@@ -2,6 +2,7 @@
 JokeBot: Tells a short joke. Simple LLM-only agent.
 Author: tdiprima
 """
+
 from agents import Agent, Runner
 
 joke_bot = Agent(name="JokeBot", instructions="Tell me a short joke.")

@@ -6,9 +6,9 @@ Version: 1.0
 License: MIT
 """
 
-__author__ = 'tdiprima'
-__version__ = '1.0'
-__license__ = 'MIT'
+__author__ = "tdiprima"
+__version__ = "1.0"
+__license__ = "MIT"
 
 import os
 
@@ -41,9 +41,13 @@ def process_file(file_path):
 
     try:
         # Get response from OpenAI
-        response = client.chat.completions.create(model="gpt-4o-realtime-preview-2025-06-03",
-            messages=[{"role": "system", "content": "You are an expert in analyzing code."},
-                      {"role": "user", "content": prompt}])
+        response = client.chat.completions.create(
+            model="gpt-4o-realtime-preview-2025-06-03",
+            messages=[
+                {"role": "system", "content": "You are an expert in analyzing code."},
+                {"role": "user", "content": prompt},
+            ],
+        )
 
         # Extract the summary from the response
         summary = response.choices[0].message.content.strip()

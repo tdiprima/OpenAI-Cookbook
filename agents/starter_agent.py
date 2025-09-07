@@ -3,6 +3,7 @@ Classifies your input into "question" or "request"
 Handles it differently based on what it thinks it is
 Self-manages with just two API calls
 """
+
 import os
 
 from openai import OpenAI
@@ -15,7 +16,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 def call_llm(prompt):
     response = client.chat.completions.create(
         model="gpt-4o",  # or gpt-3.5-turbo if you want cheap
-        messages=[{"role": "user", "content": prompt}]
+        messages=[{"role": "user", "content": prompt}],
     )
     return response.choices[0].message.content
 
@@ -23,7 +24,9 @@ def call_llm(prompt):
 # 3. Agent behavior
 def starter_agent(user_input):
     # Step 1: Understand what the user wants
-    task = call_llm(f"Classify this input: '{user_input}' into 'question', 'request', or 'other'.")
+    task = call_llm(
+        f"Classify this input: '{user_input}' into 'question', 'request', or 'other'."
+    )
 
     # Step 2: Decide what to do
     if "question" in task.lower():

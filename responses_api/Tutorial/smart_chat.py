@@ -3,6 +3,7 @@ Responses API Script
 It's your AI's smart convo starter
 An agent that answers a question using the Responses API
 """
+
 import openai
 
 # Set up your OpenAI client
@@ -12,7 +13,7 @@ client = openai.OpenAI()
 response = client.responses.create(
     model="gpt-4o",
     tools=[{"type": "web_search_preview"}],  # Tool to fetch web info
-    input="What's the weather like in New York City today?"  # Your question
+    input="What's the weather like in New York City today?",  # Your question
 )
 
 # Print the magic ✨

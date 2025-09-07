@@ -3,7 +3,9 @@ This script uploads a file to OpenAI, creates an assistant with file search capa
 https://platform.openai.com/docs/guides/tools-file-search is wrong.
 Author: tdiprima
 """
+
 import os
+
 from openai import OpenAI
 
 # Initialize the OpenAI client
@@ -13,10 +15,7 @@ client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 # Step 1: Upload a file to OpenAI
 def upload_file(file_path):
     with open(file_path, "rb") as file:
-        response = client.files.create(
-            file=file,
-            purpose="assistants"
-        )
+        response = client.files.create(file=file, purpose="assistants")
     print(f"File upload response: {response}")
     return response.id
 
@@ -24,8 +23,7 @@ def upload_file(file_path):
 # Step 2: Create a vector store and attach the file
 def create_vector_store(file_id):
     vector_store = client.beta.vector_stores.create(
-        name="File Search Vector Store",
-        file_ids=[file_id]
+        name="File Search Vector Store", file_ids=[file_id]
     )
     print(f"Vector store created: {vector_store.id}")
     return vector_store.id
@@ -40,9 +38,11 @@ def create_assistant(vector_store_id):
         tools=[{"type": "file_search"}],
         tool_resources={
             "file_search": {
-                "vector_store_ids": [vector_store_id]  # Use vector_store_ids, not file_ids
+                "vector_store_ids": [
+                    vector_store_id
+                ]  # Use vector_store_ids, not file_ids
             }
-        }
+        },
     )
     print(f"Assistant created with vector store: {assistant.id}")
     return assistant.id

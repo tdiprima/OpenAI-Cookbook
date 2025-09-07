@@ -1,8 +1,10 @@
 """
 https://github.com/openai/openai-agents-python/tree/main?tab=readme-ov-file#handoffs-example
 """
-from agents import Agent, Runner
+
 import asyncio
+
+from agents import Agent, Runner
 
 spanish_agent = Agent(
     name="Spanish agent",

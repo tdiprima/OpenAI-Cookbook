@@ -11,7 +11,7 @@ with open("ai_trends_2025.pdf", "rb") as file:
 response = client.responses.create(
     model="gpt-4o",
     tools=[{"type": "file_search", "file_ids": [uploaded_file.id]}],
-    input="What's the top AI prediction for 2025 in this doc?"
+    input="What's the top AI prediction for 2025 in this doc?",
 )
 
 # Reveal the treasure 🪙

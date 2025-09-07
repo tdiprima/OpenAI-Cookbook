@@ -6,11 +6,12 @@ Version: 1.0
 License: MIT
 """
 
-__author__ = 'tdiprima'
-__version__ = '1.0'
-__license__ = 'MIT'
+__author__ = "tdiprima"
+__version__ = "1.0"
+__license__ = "MIT"
 
 import os
+
 from openai import OpenAI
 
 # Set your OpenAI API key
@@ -18,7 +19,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Directory containing Markdown files
 home_directory = os.environ["HOME"]
-MARKDOWN_DIR = home_directory + '/path/to/your/markdown'
+MARKDOWN_DIR = home_directory + "/path/to/your/markdown"
 OUTPUT_DIR = home_directory
 
 
@@ -26,7 +27,7 @@ def improve_markdown(file_path, output_path):
     """
     Read a Markdown file, send its content to GPT-4 for improvement, and save the response.
     """
-    with open(file_path, 'r') as file:
+    with open(file_path, "r") as file:
         content = file.read()
 
     print(f"Processing: {file_path}")
@@ -45,17 +46,22 @@ def improve_markdown(file_path, output_path):
 
     try:
         # Call GPT-4
-        response = client.chat.completions.create(model="gpt-4o",
-        messages=[
-            {"role": "system", "content": "You are an expert in writing and improving markdown content."},
-            {"role": "user", "content": prompt}
-        ])
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are an expert in writing and improving markdown content.",
+                },
+                {"role": "user", "content": prompt},
+            ],
+        )
 
         # Extract improved content
         improved_content = response.choices[0].message.content
 
         # Save the improved content to the output file
-        with open(output_path, 'w') as output_file:
+        with open(output_path, "w") as output_file:
             output_file.write(improved_content)
 
         print(f"Improved content saved to: {output_path}")
@@ -73,7 +79,7 @@ def process_markdown_files(input_dir, output_dir):
 
     # Iterate through all markdown files in the input directory
     for file_name in os.listdir(input_dir):
-        if file_name.endswith('.md'):
+        if file_name.endswith(".md"):
             input_path = os.path.join(input_dir, file_name)
             output_path = os.path.join(output_dir, file_name)
             improve_markdown(input_path, output_path)

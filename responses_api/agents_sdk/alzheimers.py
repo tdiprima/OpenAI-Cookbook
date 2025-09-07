@@ -2,6 +2,7 @@
 Using openai-agents to summarize latest papers on Alzheimer's treatment
 Author: tdiprima
 """
+
 from agents import Agent, Runner
 
 query = "Summarize latest papers on Alzheimer's treatment"

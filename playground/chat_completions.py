@@ -11,7 +11,7 @@ from openai import OpenAI
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 PROMPT = """
-Can you explain quantum computing?
+
 """
 
 spinner = Halo(text="Generating response...", spinner="dots")

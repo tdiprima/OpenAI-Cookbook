@@ -1,5 +1,6 @@
-import openai
 import time
+
+import openai
 
 # Set up the client
 client = openai.OpenAI()
@@ -14,7 +15,7 @@ assistant = client.beta.assistants.create(
     name="File Sniper",
     instructions="You're a pro at digging answers out of files!",
     model="gpt-4o-mini",
-    tools=[{"type": "file_search"}]
+    tools=[{"type": "file_search"}],
 )
 print(f"Assistant ready: {assistant.id} 🦸‍♂️")
 
@@ -24,15 +25,12 @@ message = client.beta.threads.messages.create(
     thread_id=thread.id,
     role="user",
     content="What's the top AI prediction for 2025 in this doc?",
-    attachments=[{"file_id": uploaded_file.id, "tools": [{"type": "file_search"}]}]
+    attachments=[{"file_id": uploaded_file.id, "tools": [{"type": "file_search"}]}],
 )
 print(f"Question asked in thread: {thread.id} 💬")
 
 # Run the assistant
-run = client.beta.threads.runs.create(
-    thread_id=thread.id,
-    assistant_id=assistant.id
-)
+run = client.beta.threads.runs.create(thread_id=thread.id, assistant_id=assistant.id)
 print(f"Run started: {run.id} ⚡")
 
 # Wait for it... with a timeout and status updates!

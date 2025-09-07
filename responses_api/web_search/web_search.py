@@ -1,6 +1,7 @@
 """
 https://platform.openai.com/docs/guides/tools-web-search?api-mode=chat&lang=python
 """
+
 from openai import OpenAI
 
 client = OpenAI()
