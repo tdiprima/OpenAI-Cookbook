@@ -4,6 +4,7 @@ https://docs.x.ai/docs/api-reference#list-models
 Author: tdiprima
 """
 
+import operator
 import os
 from datetime import datetime
 
@@ -26,9 +27,9 @@ if response.status_code == 200:
 
     # Sort models based on the switch
     if SORT_BY_NAME:
-        models["data"].sort(key=lambda x: x["id"])
+        models["data"].sort(key=operator.itemgetter("id"))
     else:
-        models["data"].sort(key=lambda x: x["created"])
+        models["data"].sort(key=operator.itemgetter("created"))
 
     for model in models["data"]:
         timestamp = model["created"]

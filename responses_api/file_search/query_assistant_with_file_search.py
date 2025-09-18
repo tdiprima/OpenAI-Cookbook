@@ -21,7 +21,7 @@ def query_assistant(assistant_id, query):
     )
 
     # Wait for the run to complete
-    while run.status in ["queued", "in_progress"]:
+    while run.status in ("queued", "in_progress"):
         run = client.beta.threads.runs.retrieve(thread_id=thread.id, run_id=run.id)
         print(f"Run status: {run.status}")
         import time

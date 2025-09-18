@@ -11,6 +11,7 @@ __version__ = "1.0"
 __license__ = "MIT"
 
 import os
+from pathlib import Path
 
 from openai import OpenAI
 
@@ -27,8 +28,7 @@ def improve_markdown(file_path, output_path):
     """
     Read a Markdown file, send its content to GPT-4 for improvement, and save the response.
     """
-    with open(file_path, "r") as file:
-        content = file.read()
+    content = Path(file_path).read_text()
 
     print(f"Processing: {file_path}")
 
@@ -61,8 +61,7 @@ def improve_markdown(file_path, output_path):
         improved_content = response.choices[0].message.content
 
         # Save the improved content to the output file
-        with open(output_path, "w") as output_file:
-            output_file.write(improved_content)
+        Path(output_path).write_text(improved_content)
 
         print(f"Improved content saved to: {output_path}")
 
@@ -74,8 +73,8 @@ def process_markdown_files(input_dir, output_dir):
     """
     Process all Markdown files in the input directory.
     """
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
+    if not Path(output_dir).exists():
+        Path(output_dir).mkdir(parents=True)
 
     # Iterate through all markdown files in the input directory
     for file_name in os.listdir(input_dir):

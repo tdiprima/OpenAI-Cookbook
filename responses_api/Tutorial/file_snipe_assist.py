@@ -36,7 +36,7 @@ print(f"Run started: {run.id} ⚡")
 # Wait for it... with a timeout and status updates!
 start_time = time.time()
 timeout = 30  # 30 seconds max
-while run.status not in ["completed", "failed"]:
+while run.status not in ("completed", "failed"):
     run = client.beta.threads.runs.retrieve(thread_id=thread.id, run_id=run.id)
     print(f"Status: {run.status} ⏳")
     if time.time() - start_time > timeout:

@@ -22,9 +22,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 def parse_bookmarks(file_path):
     with open(file_path, "r", encoding="utf-8") as file:
         soup = BeautifulSoup(file, "html.parser")
-    bookmarks = []
-    for tag in soup.find_all("a"):
-        bookmarks.append({"name": tag.text, "url": tag["href"]})
+    bookmarks = [{"name": tag.text, "url": tag["href"]} for tag in soup.find_all("a")]
     return bookmarks
 
 

@@ -35,8 +35,7 @@ def starter_agent(user_input):
     elif "request" in task.lower():
         action = call_llm(f"Explain how you would fulfill this request: {user_input}")
         return f"✅ Here's what I would do:\n{action}"
-    else:
-        return "🤷 Sorry, I didn't understand that. Can you rephrase?"
+    return "🤷 Sorry, I didn't understand that. Can you rephrase?"
 
 
 # 4. Run it
