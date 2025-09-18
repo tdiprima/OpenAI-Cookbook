@@ -1,0 +1,26 @@
+# Main API client
+openai
+
+# Spinner/progress indicators
+halo
+
+# HTML parsing
+beautifulsoup4
+
+# CLI framework
+typer
+
+# Rich text and formatting
+rich
+
+# RSS/feed parsing
+feedparser
+
+# HTTP library
+requests
+
+# Timezone handling
+pytz
+
+# Custom agents SDK
+agents
