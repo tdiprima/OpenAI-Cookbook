@@ -4,7 +4,7 @@
 ![Languages](https://img.shields.io/github/languages/top/tdiprima/OpenAI-Cookbook)
 ![Contributions](https://img.shields.io/badge/contributions-welcome-brightgreen)
 
-This repository mainly follows examples and ideas from the [OpenAI Dashboard](https://platform.openai.com/chat-completions) and the [Playground](https://platform.openai.com/playground/chat?models=gpt-4o).
+This repository follows examples and ideas from the [OpenAI Dashboard](https://platform.openai.com/chat-completions) and the [Playground](https://platform.openai.com/playground/chat?models=gpt-4o).  Also includes my experiments, which are many!
 
 ## Notes
 
