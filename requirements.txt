@@ -1,26 +1,29 @@
 # Main API client
-openai
+openai==1.107.2
 
 # Spinner/progress indicators
-halo
+halo==0.0.31
 
 # HTML parsing
-beautifulsoup4
+beautifulsoup4==4.13.5
 
 # CLI framework
-typer
+typer==0.16.1
 
 # Rich text and formatting
-rich
+rich==14.1.0
 
 # RSS/feed parsing
-feedparser
+feedparser==6.0.12
 
 # HTTP library
-requests
+requests==2.32.5
 
 # Timezone handling
-pytz
+pytz==2025.2
 
-# Custom agents SDK
-agents
+# OpenAI agents SDK
+openai-agents==0.3.3
+
+# LangChain
+langchain-community==0.3.30
