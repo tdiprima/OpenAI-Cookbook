@@ -20,7 +20,7 @@ if PROMPT.strip():
 
     try:
         response = client.chat.completions.create(
-            model="gpt-5",
+            model="gpt-5.2",
             messages=[
                 {
                     "role": "system",
