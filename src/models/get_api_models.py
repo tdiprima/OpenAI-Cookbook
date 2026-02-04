@@ -20,7 +20,7 @@ SORT_BY_NAME = False
 api_key = os.getenv("OPENAI_API_KEY")
 headers = {"Authorization": f"Bearer {api_key}"}
 
-response = requests.get("https://api.openai.com/v1/models", headers=headers)
+response = requests.get("https://api.openai.com/v1/models", headers=headers, timeout=10)
 
 if response.status_code == 200:
     models = response.json()
