@@ -14,7 +14,7 @@ print(f"File uploaded: {uploaded_file.id} 🎉")
 assistant = client.beta.assistants.create(
     name="File Sniper",
     instructions="You're a pro at digging answers out of files!",
-    model="gpt-4o-mini",
+    model="gpt-5.2",
     tools=[{"type": "file_search"}],
 )
 print(f"Assistant ready: {assistant.id} 🦸‍♂️")

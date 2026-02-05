@@ -20,7 +20,7 @@ Below is a tutorial for the three main tools announced in OpenAI's Agents Tools 
 
   client = openai.OpenAI(api_key="your-api-key")
   response = client.responses.create(
-      model="gpt-4o",
+      model="gpt-5.2",
       messages=[{"role": "user", "content": "What's the weather like today?"}],
       tools=["web_search"]  # Automatically triggers web search if needed
   )
@@ -37,7 +37,7 @@ Below is a tutorial for the three main tools announced in OpenAI's Agents Tools 
 ---
 
 ### 2. Web Search Tool – Fetching Real-Time Answers
-**What it does**: This tool integrates web search into your AI agent, providing cited, up-to-date results. It works with `gpt-4o` and `gpt-4o-mini` in the Responses API or Chat Completions API (preview mode).
+**What it does**: This tool integrates web search into your AI agent, providing cited, up-to-date results. It works with `gpt-5.2` and `gpt-5.2` in the Responses API or Chat Completions API (preview mode).
 
 **Tutorial**:
 
@@ -46,7 +46,7 @@ Below is a tutorial for the three main tools announced in OpenAI's Agents Tools 
 
   ```python
   response = client.chat.completions.create(
-      model="gpt-4o",
+      model="gpt-5.2",
       messages=[{"role": "user", "content": "Latest AI news"}],
       tools=[{"type": "web_search"}]
   )
@@ -58,7 +58,7 @@ Below is a tutorial for the three main tools announced in OpenAI's Agents Tools 
 
   ```python
   response = client.chat.completions.create(
-      model="gpt-4o",
+      model="gpt-5.2",
       messages=[
           {"role": "user", "content": "Latest AI news"},
           {"role": "assistant", "content": response.choices[0].message.content},
@@ -97,7 +97,7 @@ Below is a tutorial for the three main tools announced in OpenAI's Agents Tools 
 
   ```python
   response = client.responses.create(
-      model="gpt-4o",
+      model="gpt-5.2",
       messages=[{"role": "user", "content": "Summarize my PDF"}],
       tools=[{"type": "file_search", "file_ids": [file.id]}]
   )
@@ -108,7 +108,7 @@ Below is a tutorial for the three main tools announced in OpenAI's Agents Tools 
 
   ```python
   assistant = client.beta.assistants.create(
-      model="gpt-4o",
+      model="gpt-5.2",
       tools=[{"type": "file_search"}],
       file_ids=[file.id]
   )

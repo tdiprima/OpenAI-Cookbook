@@ -15,7 +15,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 # 2. Define a simple function to call the model
 def call_llm(prompt):
     response = client.chat.completions.create(
-        model="gpt-4o",  # or gpt-3.5-turbo if you want cheap
+        model="gpt-5.2",  # or gpt-3.5-turbo if you want cheap
         messages=[{"role": "user", "content": prompt}],
     )
     return response.choices[0].message.content

@@ -10,7 +10,7 @@ client = openai.OpenAI()
 
 # Ask for the latest scoop
 response = client.responses.create(
-    model="gpt-4o",
+    model="gpt-5.2",
     tools=[{"type": "web_search_preview"}],
     input="What's the latest breakthrough in AI as of March 19, 2025?",
 )

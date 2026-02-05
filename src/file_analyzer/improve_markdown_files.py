@@ -47,7 +47,7 @@ def improve_markdown(file_path, output_path):
     try:
         # Call GPT-4
         response = client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-5.2",
             messages=[
                 {
                     "role": "system",

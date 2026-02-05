@@ -43,7 +43,7 @@ def extract_possible_names_or_urls(content):
         "Do not include any preamble or extra text, just list the extracted names or URLs."
     )
     response = client.chat.completions.create(
-        model="gpt-4o-realtime-preview-2025-06-03",
+        model="gpt-5.2",
         messages=[
             {"role": "system", "content": prompt},
             {"role": "user", "content": content[:4000]},  # Limit to 4000 characters

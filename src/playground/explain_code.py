@@ -43,7 +43,7 @@ Please explain it in a clear, educational manner suitable for someone learning P
 
     try:
         response = client.chat.completions.create(
-            model="gpt-4o",
+            model="gpt-5.2",
             messages=[
                 {
                     "role": "system",

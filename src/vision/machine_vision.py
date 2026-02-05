@@ -20,7 +20,7 @@ image_path = "image.png"
 base64_image = encode_image(image_path)
 
 response = client.chat.completions.create(
-    model="gpt-4o-mini",
+    model="gpt-5.2",
     messages=[
         {
             "role": "system",

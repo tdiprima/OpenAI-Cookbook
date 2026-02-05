@@ -30,7 +30,7 @@ def categorize_bookmarks(bookmarks):
     categories = {}
     for bookmark in bookmarks:
         response = client.chat.completions.create(
-            model="gpt-4o-realtime-preview-2025-06-03",
+            model="gpt-5.2",
             messages=[
                 {
                     "role": "system",

@@ -134,7 +134,7 @@ async def summarize_article(a: dict) -> str:
         try:
             prompt = PROMPT_TMPL.format(**a)
             resp = await aclient.chat.completions.create(
-                model="gpt-4o-mini",
+                model="gpt-5.2",
                 messages=[{"role": "system", "content": prompt}],
                 temperature=0.2,
             )
@@ -181,7 +181,7 @@ You are the same assistant. Combine these mini-summaries into ONE killer digest 
 
     try:
         final = await aclient.chat.completions.create(
-            model="gpt-4o-mini",
+            model="gpt-5.2",
             messages=[{"role": "system", "content": final_prompt}],
             temperature=0.2,
         )

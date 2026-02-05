@@ -8,7 +8,7 @@ const openai = new OpenAI({
 async function main() {
   const completion = await openai.chat.completions.create({
     messages: [{ role: 'user', content: 'Write a haiku about AI' }],
-    model: 'gpt-4o-realtime-preview-2025-06-03' // gpt-4o
+    model: 'gpt-5.2' // gpt-5.2
   });
 
   console.log(completion.choices);

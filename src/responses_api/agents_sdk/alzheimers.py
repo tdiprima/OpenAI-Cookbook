@@ -33,7 +33,7 @@ Topic: {query}
 research_assistant = Agent(
     name="Research Assistant",
     instructions=instructions,
-    # model="gpt-4o-search-preview"  # Specify the model here
+    # model="gpt-5.2"  # Specify the model here
 )
 
 result = Runner.run_sync(research_assistant, query)

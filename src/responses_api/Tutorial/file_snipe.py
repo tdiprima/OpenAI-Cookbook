@@ -9,7 +9,7 @@ with open("ai_trends_2025.pdf", "rb") as file:
 
 # Search that file with Responses API
 response = client.responses.create(
-    model="gpt-4o",
+    model="gpt-5.2",
     tools=[{"type": "file_search", "file_ids": [uploaded_file.id]}],
     input="What's the top AI prediction for 2025 in this doc?",
 )
