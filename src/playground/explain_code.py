@@ -82,7 +82,7 @@ def main(
         raise typer.Exit(1)
 
     if not python_file.endswith(".py"):
-        console.print("⚠️  Warning: File doesn't have .py extension", style="yellow")
+        console.print("⚠  Warning: File doesn't have .py extension", style="yellow")
 
     # Get API key
     api_key = os.getenv("OPENAI_API_KEY")

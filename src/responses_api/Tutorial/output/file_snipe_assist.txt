@@ -1,7 +1,7 @@
 File uploaded: file-xxxxx 🎉
-Assistant ready: asst_xxxxx 🦸‍♂️
+Assistant ready: asst_xxxxx 🦸‍♂
 Question asked in thread: thread_xxxxx 💬
-Run started: run_xxxxx ⚡️
+Run started: run_xxxxx ⚡
 Status: queued ⏳
 Status: in_progress ⏳
 Status: in_progress ⏳

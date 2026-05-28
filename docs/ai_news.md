@@ -23,13 +23,13 @@
 - **Why async?** So you don't wait on one "brain" to finish before starting the next—parallel processing FTW.  
 
 ### 🔗 3. Orchestrator  
-- **Mini-summaries ➡️ Mega-digest:**  
+- **Mini-summaries ➡ Mega-digest:**  
   1. **Gather** the mini-summaries.  
   2. **Stitch** them together with `---` dividers.  
   3. **Fire** one final GPT call to mash them into a single, super-concise digest (again, 2 short paragraphs, ≤300 words).  
 - **Analogy:** It's like taking three TikToks and editing them into one 30-second highlight reel.  
 
-### ⚙️ Key Configs  
+### ⚙ Key Configs  
 - **`SEARCH_TERM`**: change it to whatever AI topic you're stalking.  
 - **`MAX_ARTICLES`**: how many stories you want.  
 - **`MAX_PARALLEL`**: how many GPT calls at once (don't overload your API quota).  

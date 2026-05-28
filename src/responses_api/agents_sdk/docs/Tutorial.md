@@ -95,7 +95,7 @@ print(result.final_output)
 ## Why It Rocks
 - **Concise:** Less code, more action—like a caffeine shot for your project! ☕
 - **Flexible:** Mix in tools, handoffs, or guardrails (safety nets!) as needed.
-- **Open-Source:** Tweak it, break it, fix it—your call! 🛠️
+- **Open-Source:** Tweak it, break it, fix it—your call! 🛠
 
 ## Next Steps
 Play with more tools (web search, file reading) or check the docs at [openai.github.io/openai-agents-python](https://openai.github.io/openai-agents-python) for deeper dives. You're now an Agents SDK ninja—go build something wild! 🥷✨

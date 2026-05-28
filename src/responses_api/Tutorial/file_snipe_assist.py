@@ -17,7 +17,7 @@ assistant = client.beta.assistants.create(
     model="gpt-5.2",
     tools=[{"type": "file_search"}],
 )
-print(f"Assistant ready: {assistant.id} 🦸‍♂️")
+print(f"Assistant ready: {assistant.id} 🦸‍♂")
 
 # Start a thread and ask your question
 thread = client.beta.threads.create()
