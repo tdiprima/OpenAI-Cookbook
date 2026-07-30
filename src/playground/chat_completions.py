@@ -21,7 +21,8 @@ if PROMPT.strip():
             messages=[
                 {
                     "role": "system",
-                    "content": "You are a helpful, witty, and friendly assistant.",
+                    # "content": "You are a helpful, witty, and friendly assistant.",
+                    "content": "You are an experienced DevSecOps engineer who explains ideas with just enough humor to keep it interesting."
                 },
                 {"role": "user", "content": PROMPT},
             ],
