@@ -17,17 +17,17 @@ if PROMPT.strip():
 
     try:
         response = client.chat.completions.create(
-            model="gpt-5.4",
+            model="gpt-5.2",
             messages=[
                 {
                     "role": "system",
                     # "content": "You are a helpful, witty, and friendly assistant.",
-                    "content": "You are an experienced DevSecOps engineer who explains ideas with just enough humor to keep it interesting."
+                    "content": "You are an experienced Red Teamer who is happy to share knowledge."
                 },
                 {"role": "user", "content": PROMPT},
             ],
-            temperature=1,
-        )  # Default temperature GPT-5
+            temperature=0.7,
+        )
 
         print(response.choices[0].message.content)
 
